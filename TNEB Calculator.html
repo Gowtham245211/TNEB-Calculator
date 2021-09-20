@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<!-- saved from url=(0082)file:///home/gowtham/Documents/HTML%20Learning/Javascript%20projects/Project6.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <style>
+        body{background-image:url("/home/gowtham/Downloads/download.jpeg");
+             background-repeat: no-repeat;
+             background-attachment: fixed;
+             background-size: cover;
+             position:relative;}
+        
+        
+        
+        
+        div{
+            
+            background: #0072a0;
+            background: -webkit-linear-gradient(to left, #0072a0, #73d7ff);
+            background: linear-gradient(to left, #0072a0, #73d7ff);
+            padding:5px;
+            font-family: Roboto;
+            border: 2px solid teal;
+            width: 800px;
+            height:650px;
+            position:absolute;
+            left:0;
+            right:0;
+            top: 700px;
+            bottom:0;
+            margin:auto;
+            color: white;
+            font-size:xx-large;
+            
+        }
+        input {
+            border-radius: 20px;
+            font-family: Roboto;
+            width:30%;
+            height:8%;
+            text-align: center;
+            font-size:x-large;
+            color: black;
+            display : block;
+            margin : 0 auto;
+            
+        }
+        button {
+            
+            background-color: blue;
+            color: cornsilk;
+            width: 25%;
+            height:5 px%;
+            font-size:xx-large;
+            display : block;
+            margin : 0 auto;
+        }
+        li{
+            color:black;
+            font-size: 20px;
+        }
+
+        p{
+            text-align:center;
+            font-size:x-large;
+            font-style: oblique;
+            font-family: sans-serif;
+            color: black;
+        }
+    </style>
+        <title>TNEB Calculator</title>
+    </head>
+    <body>
+        <h1 style="text-align: center;">Electricity Bill Calculator</h1><br><br><br><br>
+        <div><br>
+            <p>DOMESTIC UNITS CONSUMED</p><br>
+            <input id="a" placeholder="Units used"><br>
+            <button onclick="calculate()">Calculate</button><br>
+            <input id="b" placeholder="Actual Cost">
+            <p style="font-size:large;color:black;"><span>Rs/Paise</span></p>
+            <ul>
+                <li>For 0 to 100 units the per unit is ₹ 0/-</li>
+                <li>For 0 to 200 units, for the first 100 unit the per unit cost is zero and the next 100 units, the consumer shall pay ₹ 1.5 per unit.</li>
+                <li>For 0 to 500 units, the consumer shall pay ₹ 0 for the first 100 units, for the next 100 units the consumer shall pay ₹ 2 per unit, for the next 300 units the unit cost is ₹3.00/-</li>
+                <li>Above 500 units – first 100 units free, next101 to 200 Rs.3.5 per unit, next 201-500 Rs.4.6 per unit, &gt;500 Rs.6.6 per unit.</li>
+            </ul>
+            
+        </div>
+        
+        <script>
+        
+        function calculate(){
+            
+            units=document.getElementById("a").value;
+            
+            if(units>=1 && units<=100) {
+                rate=0;
+                document.getElementById("b").value=rate;
+            }
+            else if(units>=1 && units<=200) {
+                units-=100;
+                rate=units*1.5;
+                document.getElementById("b").value=rate;
+            }
+            else if(units>=1 && units<=500) {
+                units=units-200;
+                rate=(100*2)+units*3;
+                document.getElementById("b").value=rate;
+            }
+            else if(units>500) {
+                units=units-500;
+                rate=(100*3.5)+(300*4.6)+(units*6.6);
+                document.getElementById("b").value=rate;
+                
+            }
+        }
+        </script>
+
+    
+</body></html>
